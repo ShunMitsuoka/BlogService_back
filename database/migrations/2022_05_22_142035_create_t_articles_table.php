@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id()->comment('ユーザid');
-            $table->string('name')->comment('ユーザ名');
-            $table->string('password')->comment('パスワード');
-            $table->string('email')->comment('メールアドレス')->unique();
-            $table->string('profile_image', 255)->nullable()->comment('トップ画像');
+        Schema::create('t_articles', function (Blueprint $table) {
+            $table->id()->comment('記事id');
+            $table->integer('post_user_id')->comment('ユーザid');
+            $table->string('title')->comment('タイトル');
+            $table->string('content')->comment('内容');
+            $table->string('profile_image')->nullable()->comment('サムネイル');
             $table->integerinteger('delete_flg')->default(0)->comment('削除フラグ');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('update_at')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('t_articles');
     }
 };
