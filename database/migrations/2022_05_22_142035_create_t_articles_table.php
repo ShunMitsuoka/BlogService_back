@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('content')->comment('内容');
             $table->string('profile_image')->nullable()->comment('サムネイル');
             $table->timestamps();
-            $table->boolean('delete_flg')->default(false)->comment('削除フラグ');
+            $table->boolean('deleted_flg')->default(false)->comment('削除フラグ');
         });
     }
 

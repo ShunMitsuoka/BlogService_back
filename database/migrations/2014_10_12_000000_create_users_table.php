@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->comment('メールアドレス')->unique();
             $table->string('profile_image', 255)->nullable()->comment('トップ画像');
             $table->timestamps();
-            $table->boolean('delete_flg')->default(false)->comment('削除フラグ');
+            $table->boolean('deleted_flg')->default(false)->comment('削除フラグ');
         });
     }
 
