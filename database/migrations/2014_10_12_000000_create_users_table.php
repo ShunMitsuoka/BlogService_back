@@ -19,9 +19,8 @@ return new class extends Migration
             $table->string('password')->comment('パスワード');
             $table->string('email')->comment('メールアドレス')->unique();
             $table->string('profile_image', 255)->nullable()->comment('トップ画像');
-            $table->integerinteger('delete_flg')->default(0)->comment('削除フラグ');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('update_at')->nullable();
+            $table->timestamps();
+            $table->boolean('delete_flg')->default(false)->comment('削除フラグ');
         });
     }
 

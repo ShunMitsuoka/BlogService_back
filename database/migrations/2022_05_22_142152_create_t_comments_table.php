@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('t_comments', function (Blueprint $table) {
             $table->id()->comment('コメントid');
-            $table->integer('article_id')->comment('記事id');
-            $table->string('content')->comment('内容');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('update_at')->nullable();
+            $table->unsignedBigInteger('article_id')->comment('記事id');
+            $table->text('content')->comment('内容');
+            $table->timestamps();
         });
     }
 

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('t_articles_categories', function (Blueprint $table) {
             $table->id()->comment('記事カテゴリーid');
-            $table->integer('article_id')->comment('記事id');
-            $table->integer('category_id')->comment('カテゴリーid');
+            $table->unsignedBigInteger('article_id')->comment('記事id');
+            $table->unsignedBigInteger('category_id')->comment('カテゴリーid');
         });
     }
 
