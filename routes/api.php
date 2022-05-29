@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// 会員登録
+use App\Http\Controllers\API\Auth\RegisterApiController;
+Route::post('/user/register', [RegisterApiController::class, 'register']);
+// ログイン
+use App\Http\Controllers\API\Auth\LoginApiController;
+Route::post('/user/login', [LoginApiController::class, 'login']);
