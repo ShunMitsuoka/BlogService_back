@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Packages\Domain\Interfaces\Repositories\ArticleRepositoryInterface;
 use Packages\Infrastructure\Repositories\ArticleRepository;
+use Laravel\Passport\Passport;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Passport::routes();
     }
 }
