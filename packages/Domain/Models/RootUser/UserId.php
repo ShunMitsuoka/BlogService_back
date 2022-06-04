@@ -2,9 +2,9 @@
 
 namespace Packages\Domain\Models\RootUser;
 
-use Packages\Domain\Interfaces\Models\ValueObjectInterface;
+// use Packages\Domain\Interfaces\Models\ValueObjectInterface;
 
-class UserId implements ValueObjectInterface
+class UserId
 {
     private int $user_id;
 

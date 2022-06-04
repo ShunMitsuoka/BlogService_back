@@ -43,6 +43,9 @@ class ArticleApiController extends Controller
             $user,
             'titleテスト',
             'contentテスト',
+            '1',
+            '1',
+            '1',
         );
         $this->article_repository->insert($artcle);
     }

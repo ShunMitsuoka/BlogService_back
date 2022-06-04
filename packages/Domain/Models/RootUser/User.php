@@ -2,9 +2,9 @@
 
 namespace Packages\Domain\Models\RootUser;
 
-use Packages\Domain\Interfaces\Models\EntityInterface;
+// use Packages\Domain\Interfaces\Models\EntityInterface;
 
-class User implements EntityInterface
+class User
 {
     private ?UserId $user_id;
     private string $name;

@@ -24,6 +24,9 @@ class ArticleRepository implements ArticleRepositoryInterface
             $post_user,
             $article_eloquent->title,
             $article_eloquent->content,
+            $article_eloquent->statud_id,
+            $article_eloquent->public_class_id,
+            $article_eloquent->thumbnail_url,
         );
     }
 
@@ -32,7 +35,18 @@ class ArticleRepository implements ArticleRepositoryInterface
     }
     
     public function insert(Article $article) : Article{
-        throw new \Exception('ここきたよ');
+       
+
+        $article_eloquent = TArticle::create([
+            'post_user_id' => $article->getPostUser()->getUserId(),
+            'title' => $article->getTitle(),
+            'content' => $article->getContent(),
+            'status_id' => $article->getStatusId(),
+            'public_class_id' => $article->getPublicClassId(),
+            'thumbnail_url' => $article->getThumbnailUrl(),
+        ]);
+        return $article;
+
     }
     
     public function update(Article $article) : Article{

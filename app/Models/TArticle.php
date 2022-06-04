@@ -12,9 +12,11 @@ class TArticle extends Model
     public $timestamps = true;
     protected $fillable = [
         'post_user_id',
+        'status_id',
+        'public_class_id',
         'title',
         'content',
-        'profile_image',
+        'thumbnailUrl',
         'deleted_flg',
     ];
 
