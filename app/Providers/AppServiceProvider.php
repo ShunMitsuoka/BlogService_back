@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Packages\Domain\Interfaces\Repositories\ArticleRepositoryInterface;
+use Packages\Infrastructure\Repositories\ArticleRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(ArticleRepositoryInterface::class, function ($app) {
+            return new ArticleRepository();
+        });
     }
 
     /**

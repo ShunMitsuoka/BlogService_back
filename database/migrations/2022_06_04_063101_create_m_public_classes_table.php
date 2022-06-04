@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_categories', function (Blueprint $table) {
-            $table->id()->comment('カテゴリーid');
-            $table->string('category_name', 50)->comment('カテゴリー名');
+        Schema::create('m_public_classes', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_categories');
+        Schema::dropIfExists('m_public_classes');
     }
 };

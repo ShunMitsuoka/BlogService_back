@@ -32,7 +32,7 @@ class ArticleRepository implements ArticleRepositoryInterface
     }
     
     public function insert(Article $article) : Article{
-        throw new \Exception();
+        throw new \Exception('ここきたよ');
     }
     
     public function update(Article $article) : Article{
