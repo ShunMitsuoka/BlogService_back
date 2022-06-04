@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('api/admin/article', App\Http\Controllers\Api\Admin\ArticleApiController::class);
+Route::apiResource('admin/article', App\Http\Controllers\Api\Admin\ArticleApiController::class);
 // 会員登録
 use App\Http\Controllers\API\Auth\RegisterApiController;
 Route::post('/user/register', [RegisterApiController::class, 'register']);
