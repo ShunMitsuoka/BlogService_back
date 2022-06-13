@@ -5,16 +5,16 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Packages\Domain\Interfaces\Repositories\ArticleRepositoryInterface;
-use Packages\Domain\Models\RootPoster\Poster;
+use Packages\Domain\Models\RootWriter\Writer;
 use Packages\Domain\Models\RootUser\UserId;
 
 class ArticleApiController extends Controller
 {
-    private Poster $poster;
+    private Writer $writer;
 
     public function __construct(ArticleRepositoryInterface $article_repository)
     {
-        $this->poster = new Poster(
+        $this->writer = new Writer(
             new UserId(1),
             'テスト投稿者',
             'test@test.com',
@@ -40,12 +40,12 @@ class ArticleApiController extends Controller
      */
     public function store(Request $request)
     {
-        $this->poster->write(
+        $this->writer->write(
             $request->title,
             $request->content,
             $request->thumbnail_url,
         );
-        $this->poster->post();
+        $this->writer->post();
     }
 
     /**

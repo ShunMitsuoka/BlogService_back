@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Domain\Models\RootPoster;
+namespace Packages\Domain\Models\RootWriter;
 
 use Carbon\Carbon;
 use Exception;
@@ -13,7 +13,7 @@ use Packages\Domain\Models\RootArticle\ArticleStatus;
 use Packages\Domain\Models\RootArticle\ArticleStatusId;
 use Packages\Domain\Models\RootUser\UserId;
 
-class Poster extends User
+class Writer extends User
 {
     private ?Article $article;
     private ArticleRepositoryInterface $article_repository;
