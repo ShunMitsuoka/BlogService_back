@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\RooyUser;
+namespace Tests\Unit\Domain\RootUser;
 
 use PHPUnit\Framework\TestCase;
 use Packages\Domain\Models\RootUser\UserId;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\RooyUser;
+namespace Tests\Unit\Domain\RootUser;
 
 use PHPUnit\Framework\TestCase;
 use Packages\Domain\Models\RootUser\User;
@@ -21,7 +21,7 @@ class UserTest extends TestCase
         $this->assertSame($user->getEmail(), $this->user_email);
     }
 
-    public function test_ユーザーIDが設定されていない場合にidを取得しようとした場合、例外がスローされる()
+    public function test_ユーザーidが設定されていない場合にidを取得しようとした場合、例外がスローされる()
     {
         $user_id = null;
         $user = new User($user_id, $this->user_name, $this->user_email);

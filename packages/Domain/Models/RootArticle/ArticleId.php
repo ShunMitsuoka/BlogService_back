@@ -12,7 +12,7 @@ class ArticleId implements ValueObjectInterface
         $this->article_id = $article_id;
     }
 
-    public function getId() : int{
+    public function getArticleId() : int{
         return $this->article_id;
     }
 }

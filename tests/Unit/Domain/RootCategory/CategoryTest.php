@@ -18,4 +18,11 @@ class CategoryTest extends TestCase
         $this->assertSame($category->getCategoryId(), $id);
         $this->assertSame($category->getName(), $this->category_name);
     }
+    public function test_カテゴリIDが設定されていない場合にidを取得しようとした場合、例外がスローされる()
+    {
+        $category_id = null;
+        $category = new Category($category_id, $this->category_name);
+        $this->expectException(\Exception::class);
+        $category->getCategoryId();
+    }
 }
