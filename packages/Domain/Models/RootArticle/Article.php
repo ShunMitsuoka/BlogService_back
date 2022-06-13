@@ -8,13 +8,11 @@ use Packages\Domain\Models\RootUser\User;
 class Article implements EntityInterface
 {
     private ?ArticleId $article_id;
-    private User $post_user;
     private string $title;
     private string $content;
 
     function __construct(
         ?ArticleId $article_id,
-        User $post_user,
         string $title,
         string $content,
         int $status_id,
@@ -24,7 +22,6 @@ class Article implements EntityInterface
     ) {
         $this->article_id = $article_id;
         $this->post_user = $post_user;
-        $this->title = $title;
         $this->content = $content;
         $this->status_id = $status_id;
         $this->public_class_id = $public_class_id;

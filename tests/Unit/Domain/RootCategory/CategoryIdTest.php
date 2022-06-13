@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Unit\Domain\RooyUser;
+namespace Tests\Unit\Domain\RootCategory;
 
 use PHPUnit\Framework\TestCase;
-use Packages\Domain\Models\RootUser\User;
 
-class UserTest extends TestCase
+class CategoryIdTest extends TestCase
 {
     /**
      * A basic unit test example.
@@ -14,7 +13,6 @@ class UserTest extends TestCase
      */
     public function test_example()
     {
-        // $user = new User();
         $this->assertTrue(true);
     }
 }
