@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Domain\RooyUser;
 
-use Exception;
 use PHPUnit\Framework\TestCase;
 use Packages\Domain\Models\RootUser\User;
 use Packages\Domain\Models\RootUser\UserId;

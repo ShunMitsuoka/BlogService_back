@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Domain\Models\RootUser;
+namespace Packages\Domain\Models\RootCategory;
 
 use Packages\Domain\Interfaces\Models\EntityInterface;
 use Packages\Domain\Models\RootCategory\CategoryId;
@@ -14,7 +14,7 @@ class Category implements EntityInterface
         $this->category_id = $category_id;
         $this->category_name = $category_name;
     }
-    public function getId() : int{
+    public function getCategoryId() : int{
         return $this->category_id->getId();
     }
     public function getName() : string{
