@@ -12,18 +12,18 @@ class Article implements EntityInterface
     private ?ArticleId $article_id;
     private string $title;
     private string $content;
-    private string $thumbnail_url;
+    private ?string $thumbnail_url;
     private ArticlePublicClass $public_class;
     private ArticleStatus $status;
-    private Carbon $posted_at;
-    private Carbon $updated_at;
+    private ?Carbon $posted_at;
+    private ?Carbon $updated_at;
     private array $categories;
 
     function __construct(
         ?ArticleId $article_id,
         string $title,
         string $content,
-        string $thumbnail_url,
+        ?string $thumbnail_url,
         ArticleStatus $status,
         ArticlePublicClass $public_class,
         Carbon $posted_at,
@@ -54,7 +54,7 @@ class Article implements EntityInterface
         return $this->content;
     }
 
-    public function getThumbnailUrl():string {
+    public function getThumbnailUrl():?string {
         return $this->thumbnail_url;
     }
 

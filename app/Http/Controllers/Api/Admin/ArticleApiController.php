@@ -5,17 +5,21 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Packages\Domain\Interfaces\Repositories\ArticleRepositoryInterface;
-use Packages\Domain\Models\RootArticle\Article;
-use Packages\Domain\Models\RootUser\User;
+use Packages\Domain\Models\RootPoster\Poster;
 use Packages\Domain\Models\RootUser\UserId;
 
 class ArticleApiController extends Controller
 {
-    private ArticleRepositoryInterface $article_repository;
+    private Poster $poster;
 
     public function __construct(ArticleRepositoryInterface $article_repository)
     {
-        $this->article_repository = $article_repository;
+        $this->poster = new Poster(
+            new UserId(1),
+            'テスト投稿者',
+            'test@test.com',
+            $article_repository,
+        );
     }
 
     /**
@@ -36,18 +40,12 @@ class ArticleApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $user = new User(new UserId(1), '二階堂');
-        $artcle = new Article(
-            null,
-            $user,
-            'titleテスト',
-            'contentテスト',
-            '1',
-            '1',
-            '1',
+        $this->poster->write(
+            $request->title,
+            $request->content,
+            $request->thumbnail_url,
         );
-        $this->article_repository->save($artcle);
+        $this->poster->post();
     }
 
     /**
