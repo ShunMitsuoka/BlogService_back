@@ -34,7 +34,7 @@ class ArticleRepository implements ArticleRepositoryInterface
         throw new \Exception();
     }
     
-    public function insert(Article $article) : Article{
+    public function save(Article $article) : Article{
        
 
         $article_eloquent = TArticle::create([

@@ -47,7 +47,7 @@ class ArticleApiController extends Controller
             '1',
             '1',
         );
-        $this->article_repository->insert($artcle);
+        $this->article_repository->save($artcle);
     }
 
     /**
