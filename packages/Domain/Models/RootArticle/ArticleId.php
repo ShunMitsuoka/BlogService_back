@@ -2,9 +2,9 @@
 
 namespace Packages\Domain\Models\RootArticle;
 
-// use Packages\Domain\Interfaces\Models\ValueObjectInterface;
+use Packages\Domain\Interfaces\Models\ValueObjectInterface;
 
-class ArticleId
+class ArticleId implements ValueObjectInterface
 {
     private int $article_id;
 

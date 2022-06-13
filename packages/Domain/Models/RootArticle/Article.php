@@ -2,10 +2,10 @@
 
 namespace Packages\Domain\Models\RootArticle;
 
-// use Packages\Domain\Interfaces\Models\EntityInterface;
+use Packages\Domain\Interfaces\Models\EntityInterface;
 use Packages\Domain\Models\RootUser\User;
 
-class Article
+class Article implements EntityInterface
 {
     private ?ArticleId $article_id;
     private User $post_user;

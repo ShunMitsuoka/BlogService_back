@@ -35,8 +35,6 @@ class ArticleRepository implements ArticleRepositoryInterface
     }
     
     public function save(Article $article) : Article{
-       
-
         $article_eloquent = TArticle::create([
             'post_user_id' => $article->getPostUser()->getUserId(),
             'title' => $article->getTitle(),
