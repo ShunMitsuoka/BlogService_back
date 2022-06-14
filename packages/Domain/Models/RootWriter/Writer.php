@@ -57,7 +57,7 @@ class Writer extends User
 
     public function post(){
         if(is_null($this->article)){
-            throw new Exception();
+            throw new Exception('投稿する記事が存在しません。');
         }
         $this->article = $this->article_repository->save($this, $this->article);
     }
