@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use App\Http\Controllers\API\BaseApiController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginApiController extends Controller
+class LoginApiController extends BaseApiController
 {
     public function login(Request $request)
     {

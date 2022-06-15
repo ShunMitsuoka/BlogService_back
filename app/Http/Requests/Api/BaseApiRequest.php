@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api;
 
+use App\Services\ApiResponseService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
@@ -10,10 +11,12 @@ class BaseApiRequest extends FormRequest
 {
     protected function failedValidation(Validator $validator)
     {
-        $res = response()->json([
-            'status' => 400,
-            'errors' => $validator->errors(),
-        ], 400);
+        $res = ApiResponseService::makeResponse(
+            400,
+            false,
+            [],
+            $validator->errors()
+        );
         throw new HttpResponseException($res);
     }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\API\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseApiController;
 use App\Http\Requests\Api\Auth\RegisterRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class RegisterApiController extends Controller
+class RegisterApiController extends BaseApiController
 {
     public function register(RegisterRequest $request)
     {
@@ -20,6 +19,9 @@ class RegisterApiController extends Controller
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
-        return response([ 'user' => $user, 'access_token' => $accessToken]);
+        return $this->makeSuccessResponse([
+            'user' => $user, 
+            'access_token' => $accessToken
+        ]);
     }
 }
