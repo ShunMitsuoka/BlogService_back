@@ -17,8 +17,6 @@ class RegisterApiController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        $validatedData['password'] = bcrypt($request->password);
-
         $user = User::create([
             'name'  => $request->name,
             'email' => $request->email,
