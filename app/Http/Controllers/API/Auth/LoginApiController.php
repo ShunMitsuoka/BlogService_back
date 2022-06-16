@@ -3,24 +3,25 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\API\BaseApiController;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Api\Auth\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LoginApiController extends BaseApiController
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $loginData = $request->validate([
-            'email' => 'email|required',
-            'password' => 'required'
-        ]);
-        if (!Auth::attempt($loginData)) {
-            return response(['message' => 'Invalid Credentials']);
+        if (!Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ])) {
+            return $this->makeErrorResponse([]);
         }
         $user = $request->user();
         $accessToken = $user->createToken('authToken')->accessToken;
-        return response(['user' => $user, 'access_token' => $accessToken]);
+        return $this->makeSuccessResponse([
+            'user' => $user, 
+            'access_token' => $accessToken
+        ]);
 
     }
 }
