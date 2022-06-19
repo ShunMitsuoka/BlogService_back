@@ -43,7 +43,7 @@ class ArticleApiController extends BaseApiController
             $request->thumbnail_url,
         );
         $this->writer->post();
-        $this->makeSuccessResponse();
+        return $this->makeSuccessResponse();
     }
 
     /**
